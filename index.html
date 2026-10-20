@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anime Team</title>
+<meta name="description" content="Anime Team — Chess.com club hub: stats, matches, members and leaderboards.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="style.css">
+<script src="config.js"></script>
+<script src="themes.js"></script>
+</head>
+<body>
+
+<div class="sb" id="sb">
+
+  <header class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-shade"></div>
+    <div class="hero-body">
+      <img class="club-icon" id="clubIcon" alt="" src="https://images.chesscomfiles.com/uploads/v1/group/4431.85961f45.160x160o.ec0342835f1f.gif">
+      <div class="hero-text">
+        <h1 class="club-name" id="clubName">Anime Team</h1>
+        <div class="theme-chip" id="themeChip"></div>
+      </div>
+    </div>
+    <p class="tagline" id="tagline"></p>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-tab="home" role="tab">Home</button>
+    <button class="tab" data-tab="matches" role="tab">Matches</button>
+    <button class="tab" data-tab="members" role="tab">Members</button>
+    <button class="tab" data-tab="ranks" role="tab">Ranks</button>
+    <button class="tab" data-tab="more" role="tab">More</button>
+    <span class="tab-ink" id="tabInk"></span>
+  </nav>
+
+  <!-- HOME -->
+  <section class="panel active" data-panel="home">
+    <div class="stats">
+      <div class="stat"><div class="stat-v" id="statMembers">—</div><div class="stat-l">Members</div></div>
+      <div class="stat"><div class="stat-v" id="statActive">—</div><div class="stat-l">Active this week</div></div>
+      <div class="stat"><div class="stat-v" id="statRating">—</div><div class="stat-l">Avg daily rating</div></div>
+      <div class="stat"><div class="stat-v" id="statAge">—</div><div class="stat-l">Club age</div></div>
+    </div>
+
+    <h2 class="label">Match record</h2>
+    <div class="card record">
+      <div class="record-nums" id="recordNums">Loading…</div>
+      <div class="record-bar"><i class="w" id="barW"></i><i class="d" id="barD"></i><i class="l" id="barL"></i></div>
+    </div>
+
+    <h2 class="label">Live right now</h2>
+    <div id="homeLive"><div class="empty">Loading…</div></div>
+
+    <h2 class="label">Member spotlight</h2>
+    <div class="card spotlight" id="spotlight">
+      <img class="avatar lg" id="spotAvatar" alt="">
+      <div class="spot-info">
+        <a class="spot-name" id="spotName" target="_blank" rel="noopener">Loading…</a>
+        <div class="spot-meta" id="spotMeta"></div>
+      </div>
+      <button class="icon-btn" id="shuffleBtn" aria-label="Pick another member" title="Pick another member">⟳</button>
+    </div>
+
+    <div class="discord-slot" data-discord></div>
+  </section>
+
+  <!-- MATCHES -->
+  <section class="panel" data-panel="matches">
+    <div class="seg" id="matchFilter">
+      <button class="active" data-f="all">All</button>
+      <button data-f="daily">Daily</button>
+      <button data-f="live">Live</button>
+    </div>
+
+    <h2 class="label">In progress <span class="count" id="cntProgress"></span></h2>
+    <div id="listProgress"><div class="empty">Loading…</div></div>
+
+    <h2 class="label">Open for registration <span class="count" id="cntReg"></span></h2>
+    <div id="listReg"><div class="empty">Loading…</div></div>
+
+    <h2 class="label">Recent results</h2>
+    <div id="listDone"><div class="empty">Loading…</div></div>
+  </section>
+
+  <!-- MEMBERS -->
+  <section class="panel" data-panel="members">
+    <form class="search" id="searchForm" autocomplete="off">
+      <input type="text" id="searchInput" placeholder="Find a player…" aria-label="Chess.com username">
+      <button type="submit">Go</button>
+    </form>
+    <div class="search-msg" id="searchMsg"></div>
+
+    <h2 class="label">Newest members</h2>
+    <div id="listNewest"><div class="empty">Loading…</div></div>
+
+    <h2 class="label">Leadership</h2>
+    <div id="listLeaders"><div class="empty">Loading…</div></div>
+  </section>
+
+  <!-- RANKS -->
+  <section class="panel" data-panel="ranks">
+    <div class="seg" id="rankFilter">
+      <button class="active" data-r="chess_rapid">Rapid</button>
+      <button data-r="chess_blitz">Blitz</button>
+      <button data-r="chess_bullet">Bullet</button>
+      <button data-r="chess_daily">Daily</button>
+    </div>
+    <div class="scan" id="scan" hidden>
+      <div class="scan-text" id="scanText">Scanning members…</div>
+      <div class="scan-bar"><i id="scanBar"></i></div>
+    </div>
+    <div id="listRanks"></div>
+    <p class="fine" id="rankNote">Top ratings among members who were active this week.</p>
+  </section>
+
+  <!-- MORE -->
+  <section class="panel" data-panel="more">
+    <div class="discord-slot" data-discord></div>
+    <a class="cta insta" id="instaBtn" target="_blank" rel="noopener" hidden>
+      <span class="cta-title" id="instaHandle"></span>
+      <span class="cta-sub">Follow us on Instagram</span>
+    </a>
+
+    <h2 class="label">Club links</h2>
+    <div class="links" id="links"></div>
+
+    <h2 class="label">Trending anime</h2>
+    <div class="anime-grid" id="animeGrid"><div class="empty">Loading…</div></div>
+  </section>
+
+  <footer class="foot" id="foot"></footer>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
