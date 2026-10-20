@@ -361,3 +361,12 @@ a.row:hover .rank-n { transform: scale(1.2) rotate(360deg); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* narrow sidebars (Chess.com's is ~300px) */
+@media (max-width: 340px) {
+  .tabs { margin: 6px 8px 0; padding: 3px; }
+  .tab { font-size: 11px; padding: 8px 0; }
+  .tab-ink { top: 3px; bottom: 3px; }
+  .panel { padding: 2px 12px 8px; }
+  .hero { padding: 92px 12px 12px; }
+}
